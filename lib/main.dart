@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'attendance.dart';
+import 'resources.dart';
 
 void main() {
   runApp(const MyApp());
@@ -79,7 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Align(
                     alignment: Alignment.center,
                     child: Text(
-                      "Zulkifil Dawood",
+                      "Yasir Arafat",
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         color: Colors.white,
@@ -290,21 +291,31 @@ class _MyHomePageState extends State<MyHomePage> {
                                       )),
                                 ),
                               ),
-                              Positioned(
-                                left: 121,
-                                top: 89,
-                                child: SizedBox(
-                                  width: 82,
-                                  height: 19,
-                                  child: Text(
-                                    "RESOURCES",
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 10,
-                                      fontFamily: "Poppins",
-                                      fontWeight: FontWeight.w700,
-                                      letterSpacing: 0.40,
+                              GestureDetector(
+                                onTap: () {
+                                  setState(() {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => resources()));
+                                  });
+                                },
+                                child: Positioned(
+                                  left: 121,
+                                  top: 89,
+                                  child: SizedBox(
+                                    width: 82,
+                                    height: 19,
+                                    child: Text(
+                                      "RESOURCES",
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 10,
+                                        fontFamily: "Poppins",
+                                        fontWeight: FontWeight.w700,
+                                        letterSpacing: 0.40,
+                                      ),
                                     ),
                                   ),
                                 ),
