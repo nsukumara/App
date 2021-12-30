@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'attendance.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Student App',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -25,14 +26,19 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'Home'),
     );
   }
 }
 
-class MyHomePage extends StatelessWidget {
+class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required String title}) : super(key: key);
 
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -240,7 +246,7 @@ class MyHomePage extends StatelessWidget {
                 Positioned(
                   left: 27,
                   top: 380,
-                  child: Scaffold(
+                  child: Container(
                     width: 348,
                     height: 108,
                     child: Row(
@@ -254,24 +260,34 @@ class MyHomePage extends StatelessWidget {
                           child: ListView(
                             scrollDirection: Axis.horizontal,
                             children: [
-                              const Positioned.fill(
+                              Positioned.fill(
                                 child: Align(
                                   alignment: Alignment.bottomLeft,
                                   child: SizedBox(
-                                    width: 82,
-                                    height: 19,
-                                    child: Text(
-                                      "ATTENDANCE",
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 10,
-                                        fontFamily: "Poppins",
-                                        fontWeight: FontWeight.w700,
-                                        letterSpacing: 0.40,
-                                      ),
-                                    ),
-                                  ),
+                                      width: 82,
+                                      height: 19,
+                                      child: ElevatedButton(
+                                        onPressed: () {
+                                          setState(() {
+                                            Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        Attendance()));
+                                          });
+                                        },
+                                        child: Text(
+                                          "ATTENDANCE",
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 10,
+                                            fontFamily: "Poppins",
+                                            fontWeight: FontWeight.w700,
+                                            letterSpacing: 0.40,
+                                          ),
+                                        ),
+                                      )),
                                 ),
                               ),
                               Positioned(
